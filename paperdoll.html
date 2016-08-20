@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="paperdoll.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Slab">
+    <link rel="stylesheet" type="text/css" href="paperdoll.css">
+    <title>Descension Paperdoll</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Matthew Cardinal">
+    <meta name="description" content="A paper doll system for Descension, the tabletop game.">
+  </head>
+  <body>
+    <div class="tabs">
+      <ul class="tab-links">
+        <li class="active"><a href="#inventoryTab">Inventory</a></li>
+        <li><a href="#statTab">Stats</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="inventoryTab" class="tab active">
+          <div id="inventory-wrapper">
+            <div id="doll" class="item-box">
+              Weapon:<br>
+              <ul id="weapon-box" class="sortable-inventory equipped">
+                <li class="item">1-Hand Axe Weapon</li>
+              </ul>
+              Shield:<br>
+              <ul id="offhand-box" class="sortable-inventory equipped">
+                <li class="item">A Shield Or Something</li>
+              </ul>
+              Accessories:<br>
+              <ul id="accessory-box" class="sortable-inventory equipped">
+                <li class="item">Test Item #1</li>
+                <li class="item">Test Item #2</li>
+              </ul>
+              Armor:<br>
+              <ul id="armor-box" class="sortable-inventory equipped">
+                <li class="item" title="<b>Testing</b><br><br><span>This is just a test.</span>">Test Item #1</li>
+              </ul>
+            </div>
+            <div id="inventory" class="item-box">
+              Inventory:<br>
+              <ul id="unequipped-box" class="sortable-inventory unequipped">
+                <li class="item">2-Hand Axe Weapon</li>
+                <li class="item">Test Item #2</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="statTab" class="tab">
+          This will become the stat tab.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
