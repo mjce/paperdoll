@@ -1,0 +1,26 @@
+{
+  "name": "paperdoll",
+  "version": "0.0.0",
+  "description": "An inventory manager for Descension",
+  "main": "paperdoll.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "pouchdb": "^5.4.5"
+  },
+  "devDependencies": {
+    "express": "^4.14.0",
+    "pouchdb": "^5.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjce/paperdoll.git"
+  },
+  "author": "Matt Cardinal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjce/paperdoll/issues"
+  }
+}
