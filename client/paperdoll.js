@@ -3,7 +3,6 @@ var remoteCouch = 'localhost:8000/db/inventory';
 addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
 
 function sync() {
-  syncDom.setAttribute('data-sync-state', 'syncing');
   var opts = {live: true};
   db.replicate.to(remoteCouch, opts, syncError);
   db.replicate.from(remoteCouch, opts, syncError);
