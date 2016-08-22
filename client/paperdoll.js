@@ -25,6 +25,7 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
                         console.log('Item successfully added!');
                         }
                       });
+        sync();
               }
       function showInventoryItems(){
               inventoryDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
