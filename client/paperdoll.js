@@ -1,6 +1,5 @@
 var inventoryDB = new PouchDB('inventory');
 var remoteCouch = 'http://descension.me:8000/db/inventory';
-remoteCouch.info();
 inventoryDB.sync(remoteCouch);
 addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
 
