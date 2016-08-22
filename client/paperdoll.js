@@ -20,7 +20,7 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
                       });
               }
       function showInventoryItems(){
-              inventoryDB.allDocs({include_docs: true, descending: true}, function(er$
+              inventoryDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
                       redrawInventoryUI(doc.rows);
                       });
               }
@@ -29,7 +29,9 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
               since: 'now',
               live: true
               }).on('change', showInventoryItems);
-
+function redrawInventoryUI (rows) {
+        
+}
 //toggles between tabs
 jQuery(document).ready(function() {
     jQuery('.tabs .tab-links a').on('click', function(e)  {
