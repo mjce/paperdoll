@@ -11,10 +11,14 @@ app.engine('hbs', exphbs({
 }))
 app.use(express.static(path.join(__dirname, 'client')));
 app.use('/db', require('express-pouchdb')(PouchDB));
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.set('view engine', '.hbs')  
 app.set('views', path.join(__dirname, 'views'))
-app.get('/', (request, response) => {  
+app.get('/', (request, response) => {
   response.render('paperdoll', {})
 })
 app.listen(8000)
