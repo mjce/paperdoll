@@ -1,5 +1,6 @@
 var inventoryDB = new PouchDB('inventory');
 var remoteCouch = new PouchDB('http://localhost:8000/db/inventory');
+remoteCouch.info();
 inventoryDB.sync(remoteCouch);
 addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
 
@@ -19,7 +20,6 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
                         console.log('Item successfully added!');
                         }
                       });
-        inventoryDB.sync(remoteCouch);
               }
       function showInventoryItems(){
               inventoryDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
