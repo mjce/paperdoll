@@ -10,12 +10,12 @@ app.engine('hbs', exphbs({
   layoutsDir: path.join(__dirname, 'views/layouts')
 }))
 app.use(express.static(path.join(__dirname, 'client')));
-app.use('/db', require('express-pouchdb')(PouchDB));
-app.use(function(req, res, next) {
+app.use('/db', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  require('express-pouchdb')(PouchDB)
   next();
-});
+  });
 app.set('view engine', '.hbs')  
 app.set('views', path.join(__dirname, 'views'))
 app.get('/', (request, response) => {
