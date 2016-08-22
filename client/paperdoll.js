@@ -1,6 +1,6 @@
 var inventoryDB = new PouchDB('http://localhost:8000/paperdoll/db/inventory');
 var remoteCouch = false;
-inventoryDB.info();
+inventoryDB.addInventoryItem("test", 1, true, "weapon", "dummy stats". "dummy bonus stats");
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
         {
