@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars')
 const app = express()
 const PouchDB = require('pouchdb')
 const cors = require('cors')
+app.use(cors());
 
 app.engine('hbs', exphbs({  
   defaultLayout: 'main',
