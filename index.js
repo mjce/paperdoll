@@ -19,5 +19,4 @@ app.set('views', path.join(__dirname, 'views'))
 app.get('/', (request, response) => {  
   response.render('paperdoll', {})
 })
-
 app.listen(8000)
