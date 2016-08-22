@@ -3,7 +3,9 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
 const PouchDB = require('pouchdb');
+const cors = require('cors');
 
+app.use(cors());
 app.use('/db', require('express-pouchdb')(PouchDB));
 
 app.use(express.static(path.join(__dirname, 'client')));
