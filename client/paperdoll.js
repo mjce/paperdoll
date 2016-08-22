@@ -4,8 +4,8 @@ addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
 
 function sync() {
   var opts = {live: true};
-  db.replicate.to(remoteCouch, opts, syncError);
-  db.replicate.from(remoteCouch, opts, syncError);
+  inventoryDB.replicate.to(remoteCouch, opts, syncError);
+  inventoryDB.replicate.from(remoteCouch, opts, syncError);
 }
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
