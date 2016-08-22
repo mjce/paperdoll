@@ -1,4 +1,3 @@
-var PouchDB = require('pouchdb');
 var inventoryDB = new PouchDB('http://localhost:8000/db/inventory');
 var remoteCouch = false;
 
