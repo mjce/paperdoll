@@ -1,13 +1,7 @@
 var inventoryDB = new PouchDB('inventory');
 var remoteCouch = new PouchDB('localhost:8000/db/inventory');
-sync();
+inventoryDB.sync(remoteCouch);
 addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
-
-function sync() {
-  var opts = {live: true};
-  inventoryDB.replicate.to(remoteCouch, opts);
-  inventoryDB.replicate.from(remoteCouch, opts);
-}
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
         {
