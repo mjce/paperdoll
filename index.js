@@ -11,7 +11,7 @@ app.engine('hbs', exphbs({
 }))
 app.use(express.static(path.join(__dirname, 'client')));
 app.use('/db', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "descension.me");
+  res.header("Access-Control-Allow-Origin", "descension.me:8000");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   require('express-pouchdb')(PouchDB)
   next();
