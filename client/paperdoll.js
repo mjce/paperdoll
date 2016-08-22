@@ -1,4 +1,4 @@
-var inventoryDB = new PouchDB('http://localhost:8000/db/inventory');
+var inventoryDB = new PouchDB('http://localhost:8000/paperdoll/db/inventory');
 var remoteCouch = false;
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
