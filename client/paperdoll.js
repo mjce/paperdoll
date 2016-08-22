@@ -1,5 +1,6 @@
-var inventoryDB = new PouchDB('localhost:8000/db/inventory');
+var inventoryDB = new PouchDB('inventory');
 var remoteCouch = 'localhost:8000/db/inventory';
+sync();
 addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
 
 function sync() {
@@ -37,7 +38,7 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
               live: true
               }).on('change', showInventoryItems);
 function redrawInventoryUI (rows) {
-        
+        return;
 }
 //toggles between tabs
 jQuery(document).ready(function() {
