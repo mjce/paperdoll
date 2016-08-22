@@ -1,3 +1,35 @@
+var PouchDB = require('pouchdb');
+var inventoryDB = new PouchDB('http://localhost:8000/db/inventory');
+var remoteCouch = false;
+
+function addInventoryItem(title, tier, store, type, stats, bonus)
+        {
+        var item = {
+                _id: new Date().toISOString(),
+                title: title,
+                tier: tier,
+                store: store,
+                type: type,
+                stats: stats,
+                bonus: bonus
+                };
+        inventoryDB.put(item, function callback(err, result){
+                if (!err) {
+                        console.log('Item successfully added!');
+                        }
+                      });
+              }
+      function showInventoryItems(){
+              inventoryDB.allDocs({include_docs: true, descending: true}, function(er$
+                      redrawInventoryUI(doc.rows);
+                      });
+              }
+      
+      inventoryDB.changes({
+              since: 'now',
+              live: true
+              }).on('change', showInventoryItems);
+
 //toggles between tabs
 jQuery(document).ready(function() {
     jQuery('.tabs .tab-links a').on('click', function(e)  {
