@@ -6,8 +6,8 @@ showInventoryItems();
 
 function destroy() {
         inventoryDB.destroy().then(function () {
-+        return remoteCouch.destroy();
-+    }).then(function () {
+        return remoteCouch.destroy();
+    }).then(function () {
           console.log('after destroy()');
         }).catch(function (err) {
           console.log('destroy err=' + err);
