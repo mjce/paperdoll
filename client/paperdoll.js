@@ -1,7 +1,9 @@
 var inventoryDB = new PouchDB('inventory');
+var equippedDB = new PouchDB('equipped');
 var remoteCouch = 'http://descension.me/couch/inventory';
 inventoryDB.sync(remoteCouch);
 addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
+showInventoryItems();
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
         {
@@ -31,7 +33,51 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
               live: true
               }).on('change', showInventoryItems);
 function redrawInventoryUI (rows) {
-        return;
+        var bag = document.getElementById('unequipped-box');
+        var weapon = document.getElementById('weapon-box');
+        var armor = document.getElementById('armor-box');
+        var offhand = document.getElementById('offhand-box');
+        var accessory = document.getElementById('unequipped-box');
+        
+        rows.forEach(function(item){
+           if (inventoryContains(item, "unequipped-box")){
+                   return;
+           } else if (inventoryContains(item, "weapon-box"))
+           {
+                return;
+           } else if (inventoryContains(item, "armor-box")){
+                return;
+           } else if (inventoryContains(item, "accessory-box")){
+                return;
+           } else if (inventoryContains(item, "offhand-box")){
+                return;
+           } else {
+                   addItem(item, "unequipped-box");
+           }
+           });
+        }
+        
+function inventoryContains(item, id){
+        var box = document.getElementById(id);
+        box.forEach(function(entry){
+                if (entry.data("id") == item._id){
+                        return true;
+                }
+        });
+        return false;
+}
+function addItem(item, id){
+        var newItem = document.createElement('li');
+        newItem.className = "item";
+        newItem.data("id", item._id);
+        newItem.data("title", item.title);
+        newItem.data("store", item.store);
+        newItem.data("type", item.type);
+        newItem.data("stats", item.stats);
+        newItem.data("bonus", item.bonus);
+        newItem.title = "<b>" + item.title + "</b><br><br>" + item.stats + "<br><br><b>Enchantments</b><br><br>";
+        newItem.appendChild(document.createTextNode(item.title));
+        document.getElementById(id).appendChild(newItem);
 }
 //toggles between tabs
 jQuery(document).ready(function() {
