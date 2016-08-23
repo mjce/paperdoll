@@ -79,6 +79,7 @@ function inventoryContains(item, id){
 }
 function addItem(item, id){
         var newItem = document.createElement('li');
+        alert(item.title);
         newItem.className = "item";
         jQuery.data(newItem, "id", item._id);
         jQuery.data(newItem, "title", item.title);
