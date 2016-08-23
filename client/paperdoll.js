@@ -33,7 +33,6 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
               }
       function showInventoryItems(){
               inventoryDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
-                      alert(doc.rows);
                       redrawInventoryUI(doc.rows);
                       });
               }
@@ -44,12 +43,6 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
               }).on('change', showInventoryItems);
               
 function redrawInventoryUI (rows) {
-        var bag = document.getElementById('unequipped-box');
-        var weapon = document.getElementById('weapon-box');
-        var armor = document.getElementById('armor-box');
-        var offhand = document.getElementById('offhand-box');
-        var accessory = document.getElementById('unequipped-box');
-        
         rows.forEach(function(item){
            if (inventoryContains(item, "unequipped-box")){
                    return;
@@ -63,7 +56,7 @@ function redrawInventoryUI (rows) {
            } else if (inventoryContains(item, "offhand-box")){
                 return;
            } else {
-                   addItem(item, "unequipped-box");
+                   addItem(item.doc, "unequipped-box");
            }
            });
         }
