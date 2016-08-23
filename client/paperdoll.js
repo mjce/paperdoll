@@ -25,7 +25,6 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
         inventoryDB.put(item, function callback(err, result){
                 if (!err) {
                         console.log('Item successfully added!');
-                        showInventoryItems();
                         }
                       });
               }
