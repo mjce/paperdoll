@@ -1,7 +1,7 @@
 var inventoryDB = new PouchDB('inventory');
-var equippedDB = new PouchDB('equipped');
-var remoteCouch = 'http://descension.me/couch/inventory';
+var remoteCouch = new PouchDB ('http://descension.me/couch/inventory');
 addInventoryItem("test", "1", true, "weapon", "dummy stats", "dummy bonus stats");
+showInventoryItems();
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
         {
@@ -14,7 +14,6 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
                 stats: stats,
                 bonus: bonus
                 };
-                alert(item.title);
         inventoryDB.put(item, function callback(err, result){
                 if (!err) {
                         console.log('Item successfully added!');
