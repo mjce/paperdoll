@@ -1,18 +1,15 @@
 var inventoryDB = new PouchDB('inventory');
-var remoteCouch = new PouchDB ('http://descension.me/couch/inventory');
-destroy();
-addInventoryItem("test", "1", true, "weapon", "dummy stats", "dummy bonus stats");
-showInventoryItems();
+var remoteCouch = 'http://descension.me/couch/inventory';
+sync();
 
-function destroy() {
-        inventoryDB.destroy().then(function () {
-        return remoteCouch.destroy();
-    }).then(function () {
-          console.log('after destroy()');
-        }).catch(function (err) {
-          console.log('destroy err=' + err);
-        });
-      }
+function sync() {
+  var opts = {live: true};
+  db.replicate.to(remoteCouch, opts, syncError);
+  db.replicate.from(remoteCouch, opts, syncError);
+}
+function syncError() {
+  syncDom.setAttribute('data-sync-state', 'error');
+ }
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
         {
@@ -72,7 +69,6 @@ function inventoryContains(item, id){
 }
 function addItem(item, id){
         var newItem = document.createElement('li');
-        alert(item.title);
         newItem.className = "item";
         jQuery.data(newItem, "id", item._id);
         jQuery.data(newItem, "title", item.title);
