@@ -80,7 +80,7 @@ function addItem(item, id){
         jQuery.data(newItem, "type", item.type);
         jQuery.data(newItem, "stats", item.stats);
         jQuery.data(newItem, "bonus", item.bonus);
-        newItem.title = "<b>" + item.title + "</b><br><br>" + item.stats + "<br><br><b>Enchantments</b><br><br>";
+        newItem.title = "<b>" + item.title + "</b><br><br>" + item.stats + "<br><br><b>Enchantments</b><br><br>" + item.bonus;
         newItem.appendChild(document.createTextNode(item.title));
         document.getElementById(id).appendChild(newItem);
 }
