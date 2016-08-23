@@ -1,6 +1,6 @@
 var inventoryDB = new PouchDB('inventory');
 var remoteCouch = 'http://descension.me/couch/inventory';
-addInventoryItem("derp", "derp", "derp", "derp", "derp", "derp")
+addInventoryItem("derp", "derp", "derp", "derp", "derp", "derp");
 sync();
 
 function sync() {
