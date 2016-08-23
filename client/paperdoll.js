@@ -59,11 +59,11 @@ function redrawInventoryUI (rows) {
         
 function inventoryContains(item, id){
         var box = document.getElementById(id);
-        box.forEach(function(entry){
-                if (entry.data("id") == item._id){
+        for each (li in box){
+                if (li.id = item._id){
                         return true;
                 }
-        });
+        }
         return false;
 }
 function addItem(item, id){
