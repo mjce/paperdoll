@@ -2,7 +2,6 @@ var inventoryDB = new PouchDB('inventory');
 var equippedDB = new PouchDB('equipped');
 var remoteCouch = 'http://descension.me/couch/inventory';
 addInventoryItem("test", "1", true, "weapon", "dummy stats", "dummy bonus stats");
-showInventoryItems();
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
         {
@@ -15,6 +14,7 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
                 stats: stats,
                 bonus: bonus
                 };
+                alert(item.title);
         inventoryDB.put(item, function callback(err, result){
                 if (!err) {
                         console.log('Item successfully added!');
@@ -134,12 +134,3 @@ $(function() {
             }
         });
     });
-$(function(){
-  var parsetest = ["Tier-1-Thorned-Crystal-Barrier;4;s;o;0/2/0;2/1/0/0/0/0/0;thorns:1;date", "2"];
-  for (var entry in parsetest){
-    var item = parsetest[entry].split(';');
-    alert(item);
-  }
-
-
-});
