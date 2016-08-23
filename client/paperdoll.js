@@ -69,12 +69,12 @@ function inventoryContains(item, id){
 function addItem(item, id){
         var newItem = document.createElement('li');
         newItem.className = "item";
-        newItem.data("id", item._id);
-        newItem.data("title", item.title);
-        newItem.data("store", item.store);
-        newItem.data("type", item.type);
-        newItem.data("stats", item.stats);
-        newItem.data("bonus", item.bonus);
+        jQuery.data(newItem, "id", item._id);
+        jQuery.data(newItem, "title", item.title);
+        jQuery.data(newItem, "store", item.store);
+        jQuery.data(newItem, "type", item.type);
+        jQuery.data(newItem, "stats", item.stats);
+        jQuery.data(newItem, "bonus", item.bonus);
         newItem.title = "<b>" + item.title + "</b><br><br>" + item.stats + "<br><br><b>Enchantments</b><br><br>";
         newItem.appendChild(document.createTextNode(item.title));
         document.getElementById(id).appendChild(newItem);
