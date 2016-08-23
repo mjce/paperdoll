@@ -33,6 +33,7 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
               }
       function showInventoryItems(){
               inventoryDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
+                      alert(doc.rows);
                       redrawInventoryUI(doc.rows);
                       });
               }
