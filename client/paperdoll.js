@@ -1,7 +1,18 @@
 var inventoryDB = new PouchDB('inventory');
 var remoteCouch = new PouchDB ('http://descension.me/couch/inventory');
+destroy();
 addInventoryItem("test", "1", true, "weapon", "dummy stats", "dummy bonus stats");
 showInventoryItems();
+
+function destroy() {
+        inventoryDB.destroy().then(function () {
++        return remoteCouch.destroy();
++    }).then(function () {
+          console.log('after destroy()');
+        }).catch(function (err) {
+          console.log('destroy err=' + err);
+        });
+      }
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
         {
