@@ -4,11 +4,11 @@ sync();
 
 function sync() {
   var opts = {live: true};
-  db.replicate.to(remoteCouch, opts, syncError);
-  db.replicate.from(remoteCouch, opts, syncError);
+  inventoryDB.replicate.to(remoteCouch, opts, syncError);
+  inventoryDB.replicate.from(remoteCouch, opts, syncError);
 }
 function syncError() {
-  syncDom.setAttribute('data-sync-state', 'error');
+  return;
  }
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
