@@ -1,8 +1,7 @@
 var inventoryDB = new PouchDB('inventory');
 var equippedDB = new PouchDB('equipped');
 var remoteCouch = 'http://descension.me/couch/inventory';
-inventoryDB.sync(remoteCouch);
-addInventoryItem("test", 1, true, "weapon", "dummy stats", "dummy bonus stats");
+addInventoryItem("test", "1", true, "weapon", "dummy stats", "dummy bonus stats");
 showInventoryItems();
 
 function addInventoryItem(title, tier, store, type, stats, bonus)
@@ -32,6 +31,7 @@ function addInventoryItem(title, tier, store, type, stats, bonus)
               since: 'now',
               live: true
               }).on('change', showInventoryItems);
+              
 function redrawInventoryUI (rows) {
         var bag = document.getElementById('unequipped-box');
         var weapon = document.getElementById('weapon-box');
