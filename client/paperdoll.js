@@ -58,9 +58,9 @@ function redrawInventoryUI (rows) {
         }
         
 function inventoryContains(item, id){
-        var box = document.getElementById(id);
-        for each (var li in box.childNodes){
-                if (li.id = item._id){
+        var box = document.getElementById(id).childNodes;
+        for (var li in box){
+                if (box[li].id = item._id){
                         return true;
                 }
         }
