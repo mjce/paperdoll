@@ -6,6 +6,7 @@ function sync() {
   var opts = {live: true};
   inventoryDB.replicate.to(remoteCouch, opts, syncError);
   inventoryDB.replicate.from(remoteCouch, opts, syncError);
+  redrawInventoryUI();
 }
 function syncError() {
   return;
