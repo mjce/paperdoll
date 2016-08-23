@@ -73,6 +73,9 @@ li.active a, li.active a:hover
 {
   height: 90%;
 }
+#inventory {
+  overflow-y: scroll;
+}
   /*--SORTING STUFF--*/
 .ui-tooltip {
     padding: 10px;
